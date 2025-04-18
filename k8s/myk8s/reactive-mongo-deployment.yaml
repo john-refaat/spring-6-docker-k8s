@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: reactive-mongo
+  name: reactive-mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactive-mongo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: reactive-mongo
+    spec:
+      containers:
+      - image: reactivemongo:0.0.1-SNAPSHOT
+        name: reactivemongo
+        resources: {}
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: docker
+status: {}
